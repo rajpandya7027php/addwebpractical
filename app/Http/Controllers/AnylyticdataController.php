@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Anylyticdata;
 use Illuminate\Http\Request;
 
+
 class AnylyticdataController extends Controller
 {
     /**
@@ -14,7 +15,7 @@ class AnylyticdataController extends Controller
      */
     public function index()
     {
-        //
+        
     }
 
     /**

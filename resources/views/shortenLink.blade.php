@@ -48,8 +48,8 @@
                             <td><a href="{{ route('shorten.link', $row->code) }}" target="_blank">{{ route('shorten.link', $row->code) }}</a></td>
                             <td>{{ $row->link }}</td>
                             <td>
-                                <a href="javascript:void(0);" title="View QR Code" id="viewqr" >View QR Code</a>
-                                <span class="qrspan" style="display: none;"><img src="https://chart.googleapis.com/chart?chs=300x300&amp;cht=qr&amp;chl={{ route('shorten.link', $row->code) }}" class="qr-code img-thumbnail img-responsive"><span></td>
+                                <a href="javascript:void(0);" title="View QR Code" style="display: block;" class="viewqr" data-id="{{ $row->id }}" >View QR Code</a>
+                                <span class="qrspan{{$row->id}}" style="display: none;"><img src="https://chart.googleapis.com/chart?chs=300x300&amp;cht=qr&amp;chl={{ route('shorten.link', $row->code) }}" class="qr-code img-thumbnail img-responsive"><span></td>
                         </tr>
                     @endforeach
                 </tbody>

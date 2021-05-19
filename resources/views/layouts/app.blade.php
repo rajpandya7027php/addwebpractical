@@ -61,6 +61,8 @@
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
+                                                                    <a href="{{route('shortLink.analyticdatarecords')}}"> View analytic Reports</a>
+
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
@@ -86,11 +88,7 @@
     </div>
 </body>
 <script>
-    $(document).ready(function () { //alert();
-         $("#viewqr").on("click", function(){
-            $('.qrspan').toggle();
-         });   
-$.validator.addMethod("isURL", function (value, element)
+    $.validator.addMethod("isURL", function (value, element)
 {
     var pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
   '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.?)+[a-z]{2,}|'+ // domain name
@@ -107,8 +105,7 @@ $.validator.addMethod("isURL", function (value, element)
         return false;
     }
 }, 'Link formate is invalid');
-
- $('#form_link').validate({ 
+$('#form_link').validate({ 
         rules: {
             link: {
                 required: true,
@@ -132,6 +129,19 @@ $.validator.addMethod("isURL", function (value, element)
             $(element).removeClass('is-invalid');
           }
     });
+    $(document).ready(function () { //alert();
+       // $(".viewqr").text('View Qr Code');
+         $(".viewqr").on("click", function(){
+            var id = $(this).attr('data-id');
+            $('.qrspan'+id).toggle();
+            if($(this).html() === 'View QR Code'){
+               $(this).html('HIde Qr Code'); 
+            }else{
+               $(this).html('VIew Qr Code');  
+            }
+         });   
+
+ 
  });
 </script>
 </html>
